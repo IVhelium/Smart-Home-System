@@ -13,5 +13,17 @@ namespace SmartHome::Lock::Hardware
             bool _lastReading = true;
             bool _stableState = true;
             bool _pressedEvent = false;
+
+        public:
+            Button(
+                uint8_t pin,
+                uint32_t debounceMs
+            );
+
+            void begin();
+            void update();
+
+            bool isPressed() const;
+            bool wasPressed();
     };
 } // namespace SmartHome::Lock::Hardware

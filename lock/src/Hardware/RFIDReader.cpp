@@ -13,7 +13,7 @@ namespace SmartHome::Lock::Hardware
         uint8_t misoPin, 
         uint8_t rstPin
     ) 
-      : _sdaPin(sdaPin),
+        : _sdaPin(sdaPin),
         _sckPin(sckPin),
         _mosiPin(mosiPin),
         _misoPin(misoPin),
