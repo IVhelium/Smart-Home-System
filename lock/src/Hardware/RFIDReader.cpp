@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <SPI.h>
-#include <string.h>
+#include <cstring>
 #include "../lock/include/SmartHome/Lock/Hardware/RFIDReader.h"
 #include "../lock/include/SmartHome/Lock/Config/Settings.h"
 
@@ -68,8 +68,8 @@ namespace SmartHome::Lock::Hardware
 
         tag.size = _reader.uid.size;
 
-        memset(tag.uid, 0, Config::Settings::MAX_UID_SIZE); // Очищаем массив перед записью
-        memcpy(tag.uid, _reader.uid.uidByte, tag.size);     // Записываем новую метку в пустой массив
+        std::memset(tag.uid, 0, Config::Settings::MAX_UID_SIZE); // Очищаем массив перед записью
+        std::memcpy(tag.uid, _reader.uid.uidByte, tag.size);     // Записываем новую метку в пустой массив
 
         _reader.PICC_HaltA();
         _reader.PCD_StopCrypto1();

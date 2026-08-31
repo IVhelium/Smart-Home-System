@@ -29,6 +29,14 @@ namespace SmartHome::Lock::Hardware
         );
     }
 
+    void ServoLock::lock()
+    {
+        if (_locked) return;
+
+        _servo.write(_lockedAngle);
+        _locked = true;
+    }
+
     void ServoLock::unlock()
     {
         _servo.write(_unlockedAngle);

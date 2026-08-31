@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <cstddef>
 #include "../lock/include/SmartHome/Lock/Hardware/Indicators.h"
 
 namespace SmartHome::Lock::Hardware
