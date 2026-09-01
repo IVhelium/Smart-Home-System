@@ -1,4 +1,4 @@
-#include "../lock/include/SmartHome/Lock/Hardware/ServoLock.h"
+#include "SmartHome/Lock/Hardware/ServoLock.h"
 
 namespace SmartHome::Lock::Hardware
 {

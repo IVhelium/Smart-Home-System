@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "../lock/include/SmartHome/Lock/Hardware/Button.h"
+#include "SmartHome/Lock/Hardware/Button.h"
 
 namespace SmartHome::Lock::Hardware
 {

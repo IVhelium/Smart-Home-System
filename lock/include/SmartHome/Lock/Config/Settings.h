@@ -28,4 +28,7 @@ namespace SmartHome::Lock::Config::Settings
     constexpr uint32_t LOCK_DELAY_MS     = 2000;  // Сколько ждать после физического закрытия двери
     constexpr uint32_t UNLOCK_TIMEOUT_MS = 7000;  // Открыли RFID, но дверь физически не открыли
 
+    // Led
+    constexpr uint8_t RGB_COMMON_ANODE = false;
+
 } // SmartHome::Lock::Config::Settings

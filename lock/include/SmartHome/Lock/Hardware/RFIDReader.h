@@ -2,7 +2,7 @@
 
 #include <cstdint>
 #include <MFRC522.h>
-#include "../lock/include/SmartHome/Lock/Domain/RFIDTag.h"
+#include "SmartHome/Lock/Domain/RFIDTag.h"
 
 namespace SmartHome::Lock::Hardware
 {

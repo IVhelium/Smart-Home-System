@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <cstring>
-#include "../lock/include/SmartHome/Lock/Hardware/RFIDReader.h"
-#include "../lock/include/SmartHome/Lock/Config/Settings.h"
+#include "SmartHome/Lock/Hardware/RFIDReader.h"
+#include "SmartHome/Lock/Config/Settings.h"
 
 namespace SmartHome::Lock::Hardware
 {
@@ -27,10 +27,10 @@ namespace SmartHome::Lock::Hardware
         Serial.println("Starting RC522...");
 
         SPI.begin(
-            _sdaPin,
             _sckPin,
             _misoPin,
-            _mosiPin
+            _mosiPin,
+            _sdaPin 
         );
 
         // MFRC522 Config
@@ -68,7 +68,7 @@ namespace SmartHome::Lock::Hardware
 
         tag.size = _reader.uid.size;
 
-        std::memset(tag.uid, 0, Config::Settings::MAX_UID_SIZE); // Очищаем массив перед записью
+        std::memset(tag.uid, 0, sizeof(tag.uid)); // Очищаем массив перед записью
         std::memcpy(tag.uid, _reader.uid.uidByte, tag.size);     // Записываем новую метку в пустой массив
 
         _reader.PICC_HaltA();

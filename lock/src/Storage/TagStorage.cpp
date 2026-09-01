@@ -1,5 +1,6 @@
+#include <cstddef>
 #include <cstring>
-#include "../lock/include/SmartHome/Lock/Storage/TagStorage.h"
+#include "SmartHome/Lock/Storage/TagStorage.h"
 
 namespace SmartHome::Lock::Storage
 {
@@ -59,9 +60,9 @@ namespace SmartHome::Lock::Storage
                     equal = false;
                     break;
                 }
-
-                if (equal) return i;
             }
+            
+            if (equal) return i;
         }
 
         return -1; // Если не найдено
