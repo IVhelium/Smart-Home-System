@@ -7,18 +7,18 @@
 namespace SmartHome::Lock::Hardware
 {
     RFIDReader::RFIDReader(
-        uint8_t sdaPin, 
+        uint8_t ssPin, 
         uint8_t sckPin, 
         uint8_t mosiPin, 
         uint8_t misoPin, 
         uint8_t rstPin
     ) 
-        : _sdaPin(sdaPin),
+        : _ssPin(ssPin),
         _sckPin(sckPin),
         _mosiPin(mosiPin),
         _misoPin(misoPin),
         _rstPin(rstPin),
-        _reader(sdaPin, rstPin)
+        _reader(ssPin, rstPin)
     {
     }
 
@@ -30,7 +30,7 @@ namespace SmartHome::Lock::Hardware
             _sckPin,
             _misoPin,
             _mosiPin,
-            _sdaPin 
+            _ssPin 
         );
 
         // MFRC522 Config
@@ -47,8 +47,6 @@ namespace SmartHome::Lock::Hardware
         // RC522 TxControl
         Serial.print("RC522 TxControl: 0x");
         Serial.println(txControl, HEX);
-
-        if (version == 0x12) Serial.println("RC522 clone 0x12");
         
         return (txControl & 0x03) == 0x03;
     }

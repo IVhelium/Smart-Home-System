@@ -9,7 +9,7 @@ namespace SmartHome::Lock::Hardware
     class RFIDReader
     {
         private:
-            uint8_t _sdaPin;
+            uint8_t _ssPin;
             uint8_t _sckPin;
             uint8_t _mosiPin;
             uint8_t _misoPin;
@@ -19,7 +19,7 @@ namespace SmartHome::Lock::Hardware
 
         public:
             RFIDReader(
-                uint8_t sdaPin,
+                uint8_t ssPin,
                 uint8_t sckPin,
                 uint8_t mosiPin,
                 uint8_t misoPin,
