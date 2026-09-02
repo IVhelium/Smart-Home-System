@@ -27,7 +27,7 @@ namespace SmartHome::Lock::Application
 
     void DoorLockManager::initializeState(bool lockingEnabled)
     {
-        _lockingEnabled = lockingEnabledl;
+        _lockingEnabled = lockingEnabled;
         _waitingForDoorOpen = false;
         _waitingForLockAfterCLose = false;
 
