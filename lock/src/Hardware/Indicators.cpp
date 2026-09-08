@@ -22,7 +22,7 @@ namespace SmartHome::Lock::Hardware
         pinMode(_redPin, OUTPUT);
         pinMode(_greenPin, OUTPUT);
 
-        noTone(_buzzerPin);
+        setToneChannel(15);
         applyBaseState();
     }
 

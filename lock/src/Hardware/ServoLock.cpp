@@ -22,6 +22,7 @@ namespace SmartHome::Lock::Hardware
     void ServoLock::begin()
     {
         _servo.setPeriodHertz(_frequency);
+
         _servo.attach(
             _pin,
             _minPulse,
@@ -33,13 +34,21 @@ namespace SmartHome::Lock::Hardware
     {
         if (_locked) return;
 
+        Serial.print("Servo -> LOCK angle: ");
+        Serial.println(_lockedAngle);
+
         _servo.write(_lockedAngle);
+
         _locked = true;
     }
 
     void ServoLock::unlock()
     {
+        Serial.print("Servo -> UNLOCK angle: ");
+        Serial.println(_unlockedAngle);
+
         _servo.write(_unlockedAngle);
+
         _locked = false;
     }
 
