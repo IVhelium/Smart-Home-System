@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "../lock/include/SmartHome/Lock/Hardware/DoorSensor.h"
+#include "SmartHome/Lock/Hardware/DoorSensor.h"
 
 namespace SmartHome::Lock::Hardware
 {

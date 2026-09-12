@@ -1,24 +1,24 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <cstring>
-#include "../lock/include/SmartHome/Lock/Hardware/RFIDReader.h"
-#include "../lock/include/SmartHome/Lock/Config/Settings.h"
+#include "SmartHome/Lock/Hardware/RFIDReader.h"
+#include "SmartHome/Lock/Config/Settings.h"
 
 namespace SmartHome::Lock::Hardware
 {
     RFIDReader::RFIDReader(
-        uint8_t sdaPin, 
+        uint8_t ssPin, 
         uint8_t sckPin, 
         uint8_t mosiPin, 
         uint8_t misoPin, 
         uint8_t rstPin
     ) 
-        : _sdaPin(sdaPin),
+        : _ssPin(ssPin),
         _sckPin(sckPin),
         _mosiPin(mosiPin),
         _misoPin(misoPin),
         _rstPin(rstPin),
-        _reader(sdaPin, rstPin)
+        _reader(ssPin, rstPin)
     {
     }
 
@@ -27,10 +27,10 @@ namespace SmartHome::Lock::Hardware
         Serial.println("Starting RC522...");
 
         SPI.begin(
-            _sdaPin,
             _sckPin,
             _misoPin,
-            _mosiPin
+            _mosiPin,
+            _ssPin 
         );
 
         // MFRC522 Config
@@ -47,8 +47,6 @@ namespace SmartHome::Lock::Hardware
         // RC522 TxControl
         Serial.print("RC522 TxControl: 0x");
         Serial.println(txControl, HEX);
-
-        if (version == 0x12) Serial.println("RC522 clone 0x12");
         
         return (txControl & 0x03) == 0x03;
     }
@@ -68,7 +66,7 @@ namespace SmartHome::Lock::Hardware
 
         tag.size = _reader.uid.size;
 
-        std::memset(tag.uid, 0, Config::Settings::MAX_UID_SIZE); // Очищаем массив перед записью
+        std::memset(tag.uid, 0, sizeof(tag.uid)); // Очищаем массив перед записью
         std::memcpy(tag.uid, _reader.uid.uidByte, tag.size);     // Записываем новую метку в пустой массив
 
         _reader.PICC_HaltA();

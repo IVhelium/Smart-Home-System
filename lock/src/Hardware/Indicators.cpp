@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include "../lock/include/SmartHome/Lock/Hardware/Indicators.h"
+#include "SmartHome/Lock/Hardware/Indicators.h"
 
 namespace SmartHome::Lock::Hardware
 {
@@ -22,7 +22,7 @@ namespace SmartHome::Lock::Hardware
         pinMode(_redPin, OUTPUT);
         pinMode(_greenPin, OUTPUT);
 
-        noTone(_buzzerPin);
+        setToneChannel(15);
         applyBaseState();
     }
 
@@ -244,6 +244,8 @@ namespace SmartHome::Lock::Hardware
             default:
                 break;
         }
+
+        return false;
     }
 
     void Indicators::applyStep(const Step& step)

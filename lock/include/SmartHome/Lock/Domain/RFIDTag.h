@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cstdint>
-#include "../lock/include/SmartHome/Lock/Config/Settings.h"
+#include "SmartHome/Lock/Config/Settings.h"
 
 namespace SmartHome::Lock::Domain
 {

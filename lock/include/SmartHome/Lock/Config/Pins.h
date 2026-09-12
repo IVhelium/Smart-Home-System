@@ -5,7 +5,7 @@
 namespace SmartHome::Lock::Config::Pins
 {
     // RC522
-    constexpr uint8_t RFID_SDA_PIN  = 5;
+    constexpr uint8_t RFID_SS_PIN   = 5;
     constexpr uint8_t RFID_SCK_PIN  = 18;
     constexpr uint8_t RFID_MOSI_PIN = 23;
     constexpr uint8_t RFID_MISO_PIN = 19;
