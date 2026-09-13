@@ -3,3 +3,95 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+
+.env
+bin/
+obj/
+.vs/
+
+## ---------- Окружение и компиляция .NET ----------
+# Папки с результатами сборки приложения
+[Bb]in/
+[Oo]bj/
+
+# Файлы пользовательских настроек сборки
+*.user
+*.userosscache
+*.sln.docstates
+*.sln
+
+# Локальные файлы конфигурации
+appsettings.Development.json
+appsettings.Local.json
+
+# Инструмент User Secrets для хранения паролей в ASP.NET Core
+secrets.json
+
+## ---------- Логи и кэш ----------
+*.log
+.eslintcache
+.node_repl_history
+
+## ---------- Операционные системы ----------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## ---------- Пакетные менеджеры ----------
+node_modules/
+jspm_packages/
+pnpm-lock.yaml
+yarn-error.log
+.fake
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.codex
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.history/*
+
+# Miscellaneous
+.angular
+.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+AGENTS.md
+
+# System files
+.DS_Store
+Thumbs.db
